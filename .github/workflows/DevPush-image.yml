@@ -1,0 +1,30 @@
+
+name: Dev Environment (Build and Push docker image to azure container registry)
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Login to azure content registory
+        uses: ${{ secrets.SECRET_REGISTRY_SERVER }}
+        with:
+          username: ${{ secrets.SECRET_REGISTRY_USERNAME }}
+          password: ${{ secrets.SECRET_REGISTRY_PASSWORD }}
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{ secrets.SECRET_REGISTRY_USERNAME }}/clockbox:$(date +%s)
