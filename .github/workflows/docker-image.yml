@@ -27,5 +27,5 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: ${{ secrets.SECRET_REGISTRY_USERNAME }}/clockbox:$(date +%s)
+          tags: acrDev0101:$(date +%s)
 
