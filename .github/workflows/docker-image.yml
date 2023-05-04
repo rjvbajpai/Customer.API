@@ -27,5 +27,5 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: acrDev0101/$(date +%s)
+          tags: acrDev0101:vaersion1.001
 
