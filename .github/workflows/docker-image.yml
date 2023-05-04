@@ -14,7 +14,7 @@ jobs:
         name: Login to azure content registory
         uses: docker/login-action@v2
         with:
-          registry: acrDev0101
+          registry: acrdev0101.azurecr.io
           username: acrDev0101
           password: XOF9Gby6tOSaWIGY/4wa5olsDCCy/6KfAaO9LHjaL/+ACRCqpTn/
       -
@@ -27,5 +27,5 @@ jobs:
           context: .
           file: Dockerfile
           push: true
-          tags: acrdev0101:vaersion1.001
+          tags: acrdev0202:version1.001
 
